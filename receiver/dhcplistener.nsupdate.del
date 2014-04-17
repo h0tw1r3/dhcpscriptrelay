@@ -1,0 +1,5 @@
+server {{.Server}}
+update delete {{.Host}}.{{.Domain}}. {{.Ttl}} {{.Rr}}
+send
+update delete {{.Ptr}}. {{.Ttl}} PTR
+send
