@@ -38,7 +38,6 @@ type Config struct {
 		Notxtrrs bool
 		Proto string
 		Nsupdateflags string
-		Debug bool
 	}
 	Service struct {
 		Ip string
