@@ -71,7 +71,7 @@ func reverse(s string) string {
 }
 
 func init() {
-	err := gcfg.ReadFileInto(&cfg, "dhcplistener.ini")
+	err := gcfg.ReadFileInto(&cfg, "/etc/dhcplistener/config.ini")
 	if err != nil {
 		log.Fatalf("failed to parse ini: %s", err)
 	}
@@ -79,7 +79,7 @@ func init() {
 	os.Setenv("KRB5_KTNAME", cfg.Kerberos.Keytab)
 	os.Setenv("KRB5CCNAME", cfg.Kerberos.Krb5cc)
 
-	tmpl = template.Must(template.ParseFiles("dhcplistener.nsupdate.add", "dhcplistener.nsupdate.del"))
+	tmpl = template.Must(template.ParseFiles("/etc/dhcplistener/nsupdate.add", "/etc/dhcplistener/nsupdate.del"))
 }
 
 func dnsmasq(ctx *web.Context, action string, ip string) string {
