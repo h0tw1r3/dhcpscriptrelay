@@ -9,3 +9,7 @@ mv $BIN $BIN.linux-amd64
 GOOS=linux GOARCH=386 go build -ldflags "-s"
 upx $BIN
 mv $BIN $BIN.linux-x86
+
+GOARM=5 GOOS=linux GOARCH=arm go build -ldflags "-s"
+upx $BIN
+mv $BIN $BIN.linux-arm5
