@@ -1,0 +1,11 @@
+[Unit]
+Description=Relay DNS updates from the network to kerberized nsupdate
+Requires=named.service samba.service
+After=named.service
+
+[Service]
+ExecStart=/usr/local/sbin/dhcplistener
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
