@@ -1,0 +1,11 @@
+#!/bin/sh
+
+BIN=receiver
+
+go build -ldflags "-s"
+goupx $BIN
+mv $BIN $BIN.linux-amd64
+
+GOOS=linux GOARCH=386 go build -ldflags "-s"
+upx $BIN
+mv $BIN $BIN.linux-x86
